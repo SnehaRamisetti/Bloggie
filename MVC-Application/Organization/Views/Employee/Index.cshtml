@@ -1,0 +1,54 @@
+@model List<CRUD.Models.Employee>
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" asp-controller="Employee" class="btn btn-success">Add Details</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    @* <td>Employee ID</td> *@
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Mobile NO</td>
+                    <td>Salary</td>
+                    <td>Role</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                     
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @* <td>@item.EmpID</td> *@
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td>@item.MobileNo</td>
+                    <td>@item.Salary</td>
+                    <td>@item.Role</td>
+
+                    <td>
+                        <a asp-action="Edit" asp-controller="Employee" asp-route-id="@item.Id">
+                            Edit
+                        </a>
+                        
+                    </td>
+                    <td>
+                       
+                        <a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.Id">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

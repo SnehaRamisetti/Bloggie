@@ -1,0 +1,35 @@
+@model CRUD.Models.Department
+
+<form asp-action="Edit" asp-area="Department" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="row">
+        <div class="col-lg-12">
+            @* <div class="form-group">
+                <label>Department ID:</label>
+                <input asp-for="EmpID" type="text" class="form-control required" placeholder="Enter Department ID" tabindex="1">
+            </div> *@
+             <div class="form-group">
+                <label>Department Name:</label>
+                <input asp-for="Name" type="text" class="form-control required" placeholder="Enter Department name" tabindex="2">
+            </div>
+            <div class="form-group">
+                <label>Location:</label>
+                <input asp-for="Location" type="text" class="form-control required" placeholder="Enter Location" tabindex="2">
+            </div>
+             <div class="form-group">
+                <label>Head Of the Department:</label>
+                <input asp-for="HeadOfDept" type="text" class="form-control required" placeholder="Enter Head Of the Department" tabindex="2">
+            </div>
+             
+            <div class="form-group">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="card-footer">
+                <center>
+                    <button type="submit" class="btn btn-warning">Update Department</button>
+                    <a asp-action="Index" asp-controller="Department" class="btn btn-secondary">Cancel</a>
+                </center>
+            </div>
+        </div>
+    </div>
+</form>
