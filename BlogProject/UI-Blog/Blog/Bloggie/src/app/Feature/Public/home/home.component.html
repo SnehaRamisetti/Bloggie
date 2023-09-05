@@ -1,0 +1,30 @@
+ <!-- html code to display blogpost-->
+
+  <div class="container">
+ <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>BlogPost</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <ng-container *ngIf="blog$ |async as blogs">
+                    <div class="col-md-4 mb-3" *ngFor="let blogpost of blogs">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{blogpost.title}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>{{blogpost.shortDescription}}</p>
+                                <a  [routerLink]="['/blog', blogpost.uriHandle]" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ </div>

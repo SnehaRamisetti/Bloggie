@@ -1,0 +1,42 @@
+ 
+<!--html code to display crud operations and list of components  -->
+<div class="container">
+     
+                <h1 class="mt-3">Category List</h1>
+                <div class="d-flex justify-content-end mt-3">
+                    <a class="btn btn-primary" routerLink="/admin/categories/add">Add Category</a>
+                </div>
+                 
+                    <table class="table table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>UriHandle</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let category of categories">
+                                <td>{{category.id}}</td>
+                                <td>{{category.name}}</td>
+                                <td>{{category.uriHandle}}</td>
+                                <td>  
+                                    <div class="btn btn-light">
+                                        <a class="fa fas fa-pencil-alt black-pencil" routerLink="/admin/categories/edit/{{category.id}}"></a>
+                                    </div> 
+                                                                     
+                                </td>
+                                <!-- <td> -->
+                                    <!-- <a class="btn btn-primary" routerLink="/admin/categories/edit/{{category.id}}">Edit</a>
+                                    <button class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button> -->
+                                <!-- </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+         
+    </div>
+
+
+
+

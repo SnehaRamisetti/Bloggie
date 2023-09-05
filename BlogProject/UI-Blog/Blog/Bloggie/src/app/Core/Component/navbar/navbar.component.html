@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">Blogster</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <ng-container *ngIf="user !== undefined && user?.roles?.includes('Writer')">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/admin/categories">Categories</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/blogposts">BlogPosts</a></li>
+
+            </ul>
+          </li>
+        </ng-container>
+
+      </ul>
+      <!--add div and login button-->
+      <div class="d-flex">
+        <ng-container *ngIf="user === undefined;else showLogOut">
+          <a class="btn btn-outline-primary" routerLink="/login">Login</a>
+          <!-- <a class="btn btn-outline-primary" routerLink="/login">Login</a> -->
+        </ng-container>
+        <ng-template #showLogOut>
+          <div class="me-3">Welcome {{user?.email}}</div>
+          <a class="btn btn-outline-primary" (click)="logout()">Logout</a>
+        </ng-template>
+      </div>
+
+
+
+    </div>
+  </div>
+</nav>
